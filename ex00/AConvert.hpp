@@ -1,8 +1,6 @@
-#ifndef EX00_CONVERT_HPP_INCLUDED
-#define EX00_CONVERT_HPP_INCLUDED
+#ifndef EX00_A_CONVERT_HPP_INCLUDED
+#define EX00_A_CONVERT_HPP_INCLUDED
 
-#include <exception>
-#include <ostream>
 #include <string>
 
 class AConvert {
@@ -21,6 +19,8 @@ public:
   virtual int asInt() const = 0;
   virtual float asFloat() const = 0;
   virtual double asDouble() const = 0;
+
+  class FormatException : public std::exception {};
 };
 
 #endif

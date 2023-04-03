@@ -8,3 +8,5 @@ ex00/*
 !ex00/main.cpp
 !ex00/AConvert.hpp
 !ex00/AConvert.cpp
+!ex00/CharConvert.hpp
+!ex00/CharConvert.cpp
