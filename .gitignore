@@ -6,5 +6,5 @@ compile_commands.json
 ex00/*
 !ex00/Makefile
 !ex00/main.cpp
-!ex00/Convert.hpp
-!ex00/Convert.cpp
+!ex00/AConvert.hpp
+!ex00/AConvert.cpp
