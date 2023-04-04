@@ -17,7 +17,7 @@ CharConvert::CharConvert(const CharConvert &copy) {
   this->CharConvert::operator=(copy);
 }
 CharConvert &CharConvert::operator=(const CharConvert &copy) {
-  (void)copy;
+  this->value = copy.value;
   return *this;
 }
 
