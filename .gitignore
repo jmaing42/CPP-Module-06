@@ -10,3 +10,5 @@ ex00/*
 !ex00/AConvert.cpp
 !ex00/CharConvert.hpp
 !ex00/CharConvert.cpp
+!ex00/IntConvert.hpp
+!ex00/IntConvert.cpp
