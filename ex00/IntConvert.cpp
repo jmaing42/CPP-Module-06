@@ -1,12 +1,39 @@
 #include "IntConvert.hpp"
+#include <cstddef>
+#include <cstdlib>
 
-bool IntConvert::isRepresentable(const std::string &stringRepresentation) {}
+bool IntConvert::isRepresentable(const std::string &stringRepresentation) {
+  int result;
+  int sgn = 1;
+  size_t i = 0;
+
+  if (!stringRepresentation[0] ||
+      (stringRepresentation[0] == '-' && !stringRepresentation[1]) ||
+      (stringRepresentation[0] == '-' && stringRepresentation[1] == '0') ||
+      (stringRepresentation[0] == '0' && stringRepresentation[1]))
+    return false;
+  result = 0;
+  if (stringRepresentation[0] == '-') {
+    sgn = -1;
+    i = 1;
+  }
+  while (stringRepresentation[i]) {
+    if (!('0' <= stringRepresentation[i] && stringRepresentation[i] <= '9') ||
+        result > INT_MAX / 10 || result < INT_MIN / 10 ||
+        (result == INT_MAX / 10 &&
+         (stringRepresentation[i] - '0') > (INT_MAX % 10)) ||
+        (result == INT_MIN / 10 &&
+         (stringRepresentation[i] - '0') > -(INT_MIN % 10)))
+      return false;
+    result = result * 10 + (stringRepresentation[i++] - '0') * sgn;
+  }
+  return true;
+}
 
 IntConvert::IntConvert(const std::string &stringRepresentation) {
   if (!IntConvert::isRepresentable(stringRepresentation))
     throw AConvert::FormatException();
-  // TODO:
-  this->value = 0;
+  this->value = std::atoi(stringRepresentation.c_str());
 }
 IntConvert::~IntConvert() {}
 IntConvert::IntConvert(const IntConvert &copy) {
