@@ -21,7 +21,23 @@ CharConvert &CharConvert::operator=(const CharConvert &copy) {
   return *this;
 }
 
-char CharConvert::asChar() const { return value; }
-int CharConvert::asInt() const { return static_cast<int>(value); }
-float CharConvert::asFloat() const { return static_cast<float>(value); }
-double CharConvert::asDouble() const { return static_cast<double>(value); }
+char CharConvert::asChar() const {
+  if (static_cast<char>(value) != value)
+    throw AConvert::FormatException();
+  return value;
+}
+int CharConvert::asInt() const {
+  if (static_cast<int>(value) != value)
+    throw AConvert::FormatException();
+  return static_cast<int>(value);
+}
+float CharConvert::asFloat() const {
+  if (static_cast<int>(value) != value)
+    throw AConvert::FormatException();
+  return static_cast<float>(value);
+}
+double CharConvert::asDouble() const {
+  if (static_cast<int>(value) != value)
+    throw AConvert::FormatException();
+  return static_cast<double>(value);
+}
