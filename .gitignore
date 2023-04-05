@@ -24,3 +24,11 @@ ex01/*
 !ex01/Data.cpp
 !ex01/Serializer.hpp
 !ex01/Serializer.cpp
+
+ex02/*
+!ex02/Makefile
+!ex02/main.cpp
+!ex02/Base.hpp
+!ex02/A.hpp
+!ex02/B.hpp
+!ex02/C.hpp
