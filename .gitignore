@@ -16,3 +16,11 @@ ex00/*
 !ex00/FloatConvert.cpp
 !ex00/DoubleConvert.hpp
 !ex00/DoubleConvert.cpp
+
+ex01/*
+!ex01/Makefile
+!ex01/main.cpp
+!ex01/Data.hpp
+!ex01/Data.cpp
+!ex01/Serializer.hpp
+!ex01/Serializer.cpp
