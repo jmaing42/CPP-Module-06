@@ -31,17 +31,17 @@ void identify(Base &obj) {
   try {
     (volatile void)dynamic_cast<A &>(obj);
     std::cout << "A" << std::endl;
-  } catch (std::exception &e) {
+  } catch (const std::exception &e) {
   }
   try {
     (volatile void)dynamic_cast<B &>(obj);
     std::cout << "B" << std::endl;
-  } catch (std::exception &e) {
+  } catch (const std::exception &e) {
   }
   try {
     (volatile void)dynamic_cast<C &>(obj);
     std::cout << "C" << std::endl;
-  } catch (std::exception &e) {
+  } catch (const std::exception &e) {
   }
 }
 

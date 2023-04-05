@@ -17,31 +17,31 @@ void doWork(std::string string) {
       } else {
         std::cout << "char: " << c << std::endl;
       }
-    } catch (std::exception &e) {
+    } catch (const std::exception &e) {
       std::cout << "impossible" << std::endl;
     }
     try {
       std::stringstream ss;
       ss << "int: " << convert->asInt();
       std::cout << ss.str() << std::endl;
-    } catch (std::exception &e) {
+    } catch (const std::exception &e) {
       std::cout << "impossible" << std::endl;
     }
     try {
       std::stringstream ss;
       ss << "float: " << convert->asFloat();
       std::cout << ss.str() << std::endl;
-    } catch (std::exception &e) {
+    } catch (const std::exception &e) {
       std::cout << "impossible" << std::endl;
     }
     try {
       std::stringstream ss;
       ss << "double: " << convert->asDouble();
       std::cout << ss.str() << std::endl;
-    } catch (std::exception &e) {
+    } catch (const std::exception &e) {
       std::cout << "impossible" << std::endl;
     }
-  } catch (std::exception &e) {
+  } catch (const std::exception &e) {
     delete convert;
     throw e;
   }
