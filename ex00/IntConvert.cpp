@@ -47,7 +47,7 @@ IntConvert &IntConvert::operator=(const IntConvert &copy) {
 char IntConvert::asChar() const {
   if (static_cast<char>(value) != value)
     throw AConvert::FormatException();
-  return value;
+  return static_cast<char>(value);
 }
 int IntConvert::asInt() const {
   if (static_cast<int>(value) != value)
@@ -55,12 +55,12 @@ int IntConvert::asInt() const {
   return static_cast<int>(value);
 }
 float IntConvert::asFloat() const {
-  if (static_cast<int>(value) != value)
+  if (static_cast<float>(value) != value)
     throw AConvert::FormatException();
   return static_cast<float>(value);
 }
 double IntConvert::asDouble() const {
-  if (static_cast<int>(value) != value)
+  if (static_cast<double>(value) != value)
     throw AConvert::FormatException();
   return static_cast<double>(value);
 }
