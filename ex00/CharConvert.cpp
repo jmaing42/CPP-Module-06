@@ -1,16 +1,14 @@
 #include "CharConvert.hpp"
 
 bool CharConvert::isRepresentable(const std::string &stringRepresentation) {
-  return stringRepresentation.length() == 1 ||
-         (stringRepresentation.length() == 3 &&
-          stringRepresentation[0] == '\'' && stringRepresentation[2] == '\'');
+  return stringRepresentation.length() == 3 &&
+         stringRepresentation[0] == '\'' && stringRepresentation[2] == '\'';
 }
 
 CharConvert::CharConvert(const std::string &stringRepresentation) {
   if (!CharConvert::isRepresentable(stringRepresentation))
     throw AConvert::FormatException();
-  this->value =
-      stringRepresentation[stringRepresentation.length() == 1 ? 0 : 1];
+  this->value = stringRepresentation[1];
 }
 CharConvert::~CharConvert() {}
 CharConvert::CharConvert(const CharConvert &copy) {
