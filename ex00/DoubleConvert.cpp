@@ -1,9 +1,11 @@
 #include "DoubleConvert.hpp"
 
+#include <cmath>
 #include <sstream>
 
 bool DoubleConvert::isRepresentable(const std::string &stringRepresentation) {
-  if (stringRepresentation == "+inf" || stringRepresentation == "-inf")
+  if (stringRepresentation == "+inf" || stringRepresentation == "-inf" ||
+      stringRepresentation == "nan")
     return true;
   std::stringstream input(stringRepresentation);
   float value;
@@ -23,6 +25,10 @@ DoubleConvert::DoubleConvert(const std::string &stringRepresentation) {
   }
   if (stringRepresentation == "-inf") {
     this->value = -std::numeric_limits<double>::infinity();
+    return;
+  }
+  if (stringRepresentation == "nanf") {
+    this->value = std::numeric_limits<double>::quiet_NaN();
     return;
   }
   std::stringstream input(stringRepresentation);
@@ -48,12 +54,12 @@ int DoubleConvert::asInt() const {
   return static_cast<int>(value);
 }
 float DoubleConvert::asFloat() const {
-  if (static_cast<float>(value) != value)
+  if (static_cast<float>(value) != value && !std::isnan(value))
     throw AConvert::FormatException();
   return static_cast<float>(value);
 }
 double DoubleConvert::asDouble() const {
-  if (static_cast<double>(value) != value)
+  if (static_cast<double>(value) != value && !std::isnan(value))
     throw AConvert::FormatException();
   return static_cast<double>(value);
 }

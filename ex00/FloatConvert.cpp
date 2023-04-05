@@ -1,9 +1,11 @@
 #include "FloatConvert.hpp"
 
+#include <cmath>
 #include <sstream>
 
 bool FloatConvert::isRepresentable(const std::string &stringRepresentation) {
-  if (stringRepresentation == "+inff" || stringRepresentation == "-inff")
+  if (stringRepresentation == "+inff" || stringRepresentation == "-inff" ||
+      stringRepresentation == "nanf")
     return true;
   std::stringstream input(stringRepresentation);
   double value;
@@ -23,6 +25,10 @@ FloatConvert::FloatConvert(const std::string &stringRepresentation) {
   }
   if (stringRepresentation == "-inff") {
     this->value = -std::numeric_limits<float>::infinity();
+    return;
+  }
+  if (stringRepresentation == "nanf") {
+    this->value = std::numeric_limits<float>::quiet_NaN();
     return;
   }
   std::stringstream input(stringRepresentation);
@@ -48,12 +54,12 @@ int FloatConvert::asInt() const {
   return static_cast<int>(value);
 }
 float FloatConvert::asFloat() const {
-  if (static_cast<float>(value) != value)
+  if (static_cast<float>(value) != value && !std::isnan(value))
     throw AConvert::FormatException();
   return static_cast<float>(value);
 }
 double FloatConvert::asDouble() const {
-  if (static_cast<double>(value) != value)
+  if (static_cast<double>(value) != value && !std::isnan(value))
     throw AConvert::FormatException();
   return static_cast<double>(value);
 }
