@@ -43,7 +43,12 @@ void doWork(std::string string) {
 }
 
 int main(int argc, char **argv) {
-  for (int i = 1; i < argc; i++) {
-    doWork(argv[i]);
+  if (argc < 2) {
+    std::cout << "usage: " << argv[0] << " literal [literal [literal ...]]"
+              << std::endl;
+  } else {
+    for (int i = 1; i < argc; i++) {
+      doWork(argv[i]);
+    }
   }
 }
