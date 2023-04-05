@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <exception>
 #include <iostream>
 #include <sstream>
@@ -10,8 +11,12 @@ void doWork(std::string string) {
   try {
     try {
       std::stringstream ss;
-      ss << "char: " << convert->asChar();
-      std::cout << ss.str() << std::endl;
+      const char c = convert->asChar();
+      if (!std::isprint(c)) {
+        std::cout << "char: not displayable" << std::endl;
+      } else {
+        std::cout << "char: " << c << std::endl;
+      }
     } catch (std::exception &e) {
       std::cout << "impossible" << std::endl;
     }
