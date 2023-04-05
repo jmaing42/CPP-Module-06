@@ -12,3 +12,7 @@ ex00/*
 !ex00/CharConvert.cpp
 !ex00/IntConvert.hpp
 !ex00/IntConvert.cpp
+!ex00/FloatConvert.hpp
+!ex00/FloatConvert.cpp
+!ex00/DoubleConvert.hpp
+!ex00/DoubleConvert.cpp
