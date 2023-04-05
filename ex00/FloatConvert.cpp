@@ -3,6 +3,8 @@
 #include <sstream>
 
 bool FloatConvert::isRepresentable(const std::string &stringRepresentation) {
+  if (stringRepresentation == "+inff" || stringRepresentation == "-inff")
+    return true;
   std::stringstream input(stringRepresentation);
   double value;
   input >> value;
@@ -15,6 +17,14 @@ bool FloatConvert::isRepresentable(const std::string &stringRepresentation) {
 FloatConvert::FloatConvert(const std::string &stringRepresentation) {
   if (!FloatConvert::isRepresentable(stringRepresentation))
     throw AConvert::FormatException();
+  if (stringRepresentation == "+inff") {
+    this->value = std::numeric_limits<float>::infinity();
+    return;
+  }
+  if (stringRepresentation == "-inff") {
+    this->value = -std::numeric_limits<float>::infinity();
+    return;
+  }
   std::stringstream input(stringRepresentation);
   input >> this->value;
 }
