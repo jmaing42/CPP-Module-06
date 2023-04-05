@@ -1,5 +1,5 @@
 NAME = ex00
-OBJS = main.o Bureaucrat.o
+OBJS = main.o AConvert.o CharConvert.o IntConvert.o FloatConvert.o DoubleConvert.o
 
 CXXFLAGS = -Wall -Wextra -Werror
 

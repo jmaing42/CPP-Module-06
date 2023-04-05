@@ -5,6 +5,8 @@
 
 class AConvert {
 public:
+  static AConvert *getInstance(std::string &stringRepresentation);
+
   static std::string toString(char c);
   static std::string toString(int i);
   static std::string toString(float f);
