@@ -6,7 +6,7 @@
 
 #include "AConvert.hpp"
 
-void doWork(std::string string) {
+static void doWork(std::string string) {
   const AConvert *const convert = AConvert::getInstance(string);
   try {
     try {
