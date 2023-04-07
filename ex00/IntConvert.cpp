@@ -1,5 +1,6 @@
 #include "IntConvert.hpp"
 
+#include <cctype>
 #include <cstddef>
 #include <cstdlib>
 #include <limits>
@@ -20,7 +21,7 @@ bool IntConvert::isRepresentable(const std::string &stringRepresentation) {
     i = 1;
   }
   while (stringRepresentation[i]) {
-    if (!('0' <= stringRepresentation[i] && stringRepresentation[i] <= '9') ||
+    if (!std::isdigit(stringRepresentation[i]) ||
         result > std::numeric_limits<int>::max() / 10 ||
         result < std::numeric_limits<int>::min() / 10 ||
         (result == std::numeric_limits<int>::max() / 10 &&
@@ -30,7 +31,8 @@ bool IntConvert::isRepresentable(const std::string &stringRepresentation) {
          (stringRepresentation[i] - '0') >
              -(std::numeric_limits<int>::min() % 10)))
       return false;
-    result = result * 10 + (stringRepresentation[i++] - '0') * sgn;
+    result = result * 10 + (stringRepresentation[i] - '0') * sgn;
+    i++;
   }
   return true;
 }
