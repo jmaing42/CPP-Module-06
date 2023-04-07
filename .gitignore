@@ -6,8 +6,8 @@ compile_commands.json
 ex00/*
 !ex00/Makefile
 !ex00/main.cpp
-!ex00/AConvert.hpp
-!ex00/AConvert.cpp
+!ex00/ScalarConverter.hpp
+!ex00/ScalarConverter.cpp
 !ex00/CharConvert.hpp
 !ex00/CharConvert.cpp
 !ex00/IntConvert.hpp

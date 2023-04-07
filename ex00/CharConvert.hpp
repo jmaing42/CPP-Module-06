@@ -3,9 +3,9 @@
 
 #include <string>
 
-#include "AConvert.hpp"
+#include "ScalarConverter.hpp"
 
-class CharConvert : public AConvert {
+class CharConvert : public ScalarConverter {
 private:
   char value;
 

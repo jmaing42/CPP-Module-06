@@ -3,9 +3,9 @@
 
 #include <string>
 
-#include "AConvert.hpp"
+#include "ScalarConverter.hpp"
 
-class FloatConvert : public AConvert {
+class FloatConvert : public ScalarConverter {
 private:
   double value;
 

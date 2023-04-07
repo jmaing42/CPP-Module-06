@@ -18,7 +18,7 @@ bool FloatConvert::isRepresentable(const std::string &stringRepresentation) {
 
 FloatConvert::FloatConvert(const std::string &stringRepresentation) {
   if (!FloatConvert::isRepresentable(stringRepresentation))
-    throw AConvert::FormatException();
+    throw ScalarConverter::FormatException();
   if (stringRepresentation == "+inff") {
     this->value = std::numeric_limits<float>::infinity();
     return;
@@ -45,21 +45,21 @@ FloatConvert &FloatConvert::operator=(const FloatConvert &copy) {
 
 char FloatConvert::asChar() const {
   if (static_cast<char>(value) != value)
-    throw AConvert::FormatException();
+    throw ScalarConverter::FormatException();
   return static_cast<char>(value);
 }
 int FloatConvert::asInt() const {
   if (static_cast<int>(value) != value)
-    throw AConvert::FormatException();
+    throw ScalarConverter::FormatException();
   return static_cast<int>(value);
 }
 float FloatConvert::asFloat() const {
   if (static_cast<float>(value) != value && !std::isnan(value))
-    throw AConvert::FormatException();
+    throw ScalarConverter::FormatException();
   return static_cast<float>(value);
 }
 double FloatConvert::asDouble() const {
   if (static_cast<double>(value) != value && !std::isnan(value))
-    throw AConvert::FormatException();
+    throw ScalarConverter::FormatException();
   return static_cast<double>(value);
 }

@@ -1,21 +1,21 @@
-#ifndef EX00_A_CONVERT_HPP_INCLUDED
-#define EX00_A_CONVERT_HPP_INCLUDED
+#ifndef EX00_SCALAR_CONVERTER_HPP_INCLUDED
+#define EX00_SCALAR_CONVERTER_HPP_INCLUDED
 
 #include <string>
 
-class AConvert {
+class ScalarConverter {
 public:
-  static AConvert *getInstance(std::string &stringRepresentation);
+  static ScalarConverter *getInstance(std::string &stringRepresentation);
 
   static std::string toString(char c);
   static std::string toString(int i);
   static std::string toString(float f);
   static std::string toString(double f);
 
-  AConvert();
-  virtual ~AConvert(){};
-  AConvert(const AConvert &copy);
-  AConvert &operator=(const AConvert &copy);
+  ScalarConverter();
+  virtual ~ScalarConverter(){};
+  ScalarConverter(const ScalarConverter &copy);
+  ScalarConverter &operator=(const ScalarConverter &copy);
 
   virtual char asChar() const = 0;
   virtual int asInt() const = 0;

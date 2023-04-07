@@ -4,10 +4,10 @@
 #include <sstream>
 #include <string>
 
-#include "AConvert.hpp"
+#include "ScalarConverter.hpp"
 
 static void doWork(std::string string) {
-  const AConvert *const convert = AConvert::getInstance(string);
+  const ScalarConverter *const convert = ScalarConverter::getInstance(string);
   try {
     try {
       std::stringstream ss;

@@ -1,12 +1,13 @@
 #include <sstream>
 
-#include "AConvert.hpp"
 #include "CharConvert.hpp"
 #include "DoubleConvert.hpp"
 #include "FloatConvert.hpp"
 #include "IntConvert.hpp"
+#include "ScalarConverter.hpp"
 
-AConvert *AConvert::getInstance(std::string &stringRepresentation) {
+ScalarConverter *
+ScalarConverter::getInstance(std::string &stringRepresentation) {
   if (CharConvert::isRepresentable(stringRepresentation))
     return new CharConvert(stringRepresentation);
   if (IntConvert::isRepresentable(stringRepresentation))
@@ -15,36 +16,38 @@ AConvert *AConvert::getInstance(std::string &stringRepresentation) {
     return new FloatConvert(stringRepresentation);
   if (DoubleConvert::isRepresentable(stringRepresentation))
     return new DoubleConvert(stringRepresentation);
-  throw AConvert::FormatException();
+  throw ScalarConverter::FormatException();
 }
 
-std::string AConvert::toString(char c) {
+std::string ScalarConverter::toString(char c) {
   std::stringstream ss;
   ss << c;
   return ss.str();
 }
 
-std::string AConvert::toString(int i) {
+std::string ScalarConverter::toString(int i) {
   std::stringstream ss;
   ss << i;
   return ss.str();
 }
 
-std::string AConvert::toString(float f) {
+std::string ScalarConverter::toString(float f) {
   std::stringstream ss;
   ss << f;
   return ss.str();
 }
 
-std::string AConvert::toString(double f) {
+std::string ScalarConverter::toString(double f) {
   std::stringstream ss;
   ss << f;
   return ss.str();
 }
 
-AConvert::AConvert() {}
-AConvert::AConvert(const AConvert &copy) { this->AConvert::operator=(copy); }
-AConvert &AConvert::operator=(const AConvert &copy) {
+ScalarConverter::ScalarConverter() {}
+ScalarConverter::ScalarConverter(const ScalarConverter &copy) {
+  this->ScalarConverter::operator=(copy);
+}
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copy) {
   (void)copy;
   return *this;
 }
